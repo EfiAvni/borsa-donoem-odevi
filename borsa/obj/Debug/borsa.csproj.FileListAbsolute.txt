@@ -23,8 +23,11 @@ C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
 C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\Microsoft.Web.WebView2.Core.xml
 C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
 C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
-C:\Users\mavni\source\repos\borsa\borsa\obj\Debug\borsa.borsa.resources
 C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\Newtonsoft.Json.dll
 C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\Newtonsoft.Json.xml
 C:\Users\mavni\source\repos\borsa\borsa\obj\Debug\borsa.AnaSayfa.resources
 C:\Users\mavni\source\repos\borsa\borsa\obj\Debug\BorsaUygulamasi.Form1.resources
+C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\HtmlAgilityPack.dll
+C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\mavni\source\repos\borsa\borsa\bin\Debug\HtmlAgilityPack.xml
+C:\Users\mavni\source\repos\borsa\borsa\obj\Debug\borsa.CurrencyConverter.resources

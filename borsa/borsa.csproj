@@ -38,6 +38,9 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.12.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.12.0\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.3065.39, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3065.39\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -70,17 +73,17 @@
     <Compile Include="AccountPage.Designer.cs">
       <DependentUpon>AccountPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="borsa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="borsa.Designer.cs">
-      <DependentUpon>borsa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\CollectApiService.cs" />
+    <Compile Include="Classes\AlphaVantageHelper.cs" />
     <Compile Include="Classes\Sha256Converter.cs" />
     <Compile Include="Classes\SqlOperations.cs" />
     <Compile Include="Classes\StockData.cs" />
     <Compile Include="Classes\UserRepository.cs" />
+    <Compile Include="CurrencyConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurrencyConverter.Designer.cs">
+      <DependentUpon>CurrencyConverter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,8 +125,8 @@
     <EmbeddedResource Include="AccountPage.resx">
       <DependentUpon>AccountPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="borsa.resx">
-      <DependentUpon>borsa.cs</DependentUpon>
+    <EmbeddedResource Include="CurrencyConverter.resx">
+      <DependentUpon>CurrencyConverter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

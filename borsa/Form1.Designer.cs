@@ -1,4 +1,7 @@
-﻿namespace BorsaUygulamasi
+﻿using System.Windows.Forms;
+using System;
+
+namespace BorsaUygulamasi
 {
     partial class Form1
     {
@@ -19,6 +22,10 @@
             }
             base.Dispose(disposing);
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
 
         #region Windows Form Designer generated code
 
@@ -28,36 +35,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewStocks = new System.Windows.Forms.DataGridView();
+            this.btnGetData = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStocks)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewStocks
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-2, -4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 452);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStocks.Location = new System.Drawing.Point(-2, -4);
+            this.dataGridViewStocks.Name = "dataGridViewStocks";
+            this.dataGridViewStocks.RowHeadersWidth = 51;
+            this.dataGridViewStocks.RowTemplate.Height = 24;
+            this.dataGridViewStocks.Size = new System.Drawing.Size(803, 452);
+            this.dataGridViewStocks.TabIndex = 0;
+            // 
+            // btnGetData
+            // 
+            this.btnGetData.Location = new System.Drawing.Point(617, 365);
+            this.btnGetData.Name = "btnGetData";
+            this.btnGetData.Size = new System.Drawing.Size(75, 23);
+            this.btnGetData.TabIndex = 1;
+            this.btnGetData.Text = "Veri Getir";
+            this.btnGetData.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnGetData);
+            this.Controls.Add(this.dataGridViewStocks);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStocks)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewStocks;
+        private System.Windows.Forms.Button btnGetData;
     }
 }

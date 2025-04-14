@@ -8,50 +8,44 @@ namespace BorsaUygulamasi
 {
     public partial class Form1 : Form
     {
-        private static readonly HttpClient client = new HttpClient();
-        private const string ApiKey = "q20G3auTZ2Zv1M3qd4s87r9sue2rS7jk"; // API key'inizi buraya girin
-        private const string ApiUrl = "https://financialmodelingprep.com/api/v3/quote/";
+        // BIST Hisse Listesi (Örnek)
+        private readonly string[] bistStocks = {
+        "AKBNK.IS", "GARAN.IS", "THYAO.IS", "ASELS.IS", "BIMAS.IS",
+        "EREGL.IS", "FROTO.IS", "HEKTS.IS", "KCHOL.IS", "KOZAA.IS"
+    };
 
         public Form1()
         {
             InitializeComponent();
+            dataGridViewStocks.Columns.Add("Symbol", "Hisse");
+            dataGridViewStocks.Columns.Add("Price", "Fiyat");
+            dataGridViewStocks.Columns.Add("Change", "Değişim (%)");
         }
 
-        private async void Form1_Load(object sender, EventArgs e)
+        private async void btnGetData_Click(object sender, EventArgs e)
         {
-            await LoadStockData();
-        }
+            dataGridViewStocks.Rows.Clear();
 
-        private async Task LoadStockData()
-        {
-            try
+            foreach (var symbol in bistStocks)
             {
-                // Örnek olarak 50 BIST hissesinin sembollerini belirleyin
-                string[] bistStocks = { "AKBNK", "ARCLK", "ASELS", "BIMAS", "EKGYO", "EREGL", "FROTO", "GARAN", "GUBRF", "HALKB", "ISCTR", "KCHOL", "KOZAA", "KOZAL", "KRDMD", "MGROS", "ODAS", "OYAKC", "PETKM", "PGSUS", "SAHOL", "SASA", "SISE", "SKBNK", "TCELL", "THYAO", "TKFEN", "TOASO", "TSKB", "TTKOM", "TUPRS", "VAKBN", "VESTL", "YKBNK", "ZOREN", "ALARK", "ALKIM", "ANACM", "AYGAZ", "BRSAN", "CCOLA", "CEMTS", "DOAS", "EGEEN", "ENJSA", "FENER", "GOODY", "HEKTS", "ISGYO", "KONYA" };
+                var data = await AlphaVantageHelper.GetStockDataAsync(symbol);
 
-                // API'den hisse verilerini çek
-                foreach (var stock in bistStocks)
+                if (data["Error"] == null)
                 {
-                    string requestUrl = $"{ApiUrl}{stock}?apikey={ApiKey}";
-                    var response = await client.GetStringAsync(requestUrl);
-                    var jsonArray = JArray.Parse(response);
+                    var quote = data["Global Quote"];
+                    string price = quote["05. price"]?.ToString();
+                    string change = quote["10. change percent"]?.ToString();
 
-                    if (jsonArray.Count > 0)
-                    {
-                        var stockData = jsonArray[0];
-                        dataGridView1.Rows.Add(
-                            stockData["symbol"].ToString(),
-                            stockData["name"].ToString(),
-                            stockData["price"].ToString(),
-                            stockData["change"].ToString(),
-                            stockData["changesPercentage"].ToString()
-                        );
-                    }
+                    dataGridViewStocks.Rows.Add(
+                        symbol.Replace(".IS", ""), // Sadece hisse adı
+                        $"{price} ₺",
+                        $"{change}%"
+                    );
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hata oluştu: " + ex.Message);
+                else
+                {
+                    MessageBox.Show($"Hata: {data["Error"]}");
+                }
             }
         }
     }
